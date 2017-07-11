@@ -51,7 +51,7 @@ class TorIRCFactory(ClientFactory):
 def main(reactor):
     torEndpoint = TCP4ClientEndpoint(reactor, '127.0.0.1', 9050)
     # freenode's tor endpoint
-    ircEndpoint = SOCKS5ClientEndpoint('lgttsalmpw3qo4no.onion', 6667, torEndpoint)
+    ircEndpoint = SOCKS5ClientEndpoint('freenodeok2gncmy.onion', 6667, torEndpoint)
     d = ircEndpoint.connect(SpewingFactory(TorIRCFactory()))
     d.addCallback(lambda proto: proto.wrappedProtocol.deferred)
     return d
